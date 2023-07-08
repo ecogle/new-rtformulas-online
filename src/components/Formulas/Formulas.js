@@ -5,17 +5,26 @@ import { Link } from "react-router-dom";
 
 export default function Formulas() {
   return (
-    <Accordion defaultActiveKey={0}>
-      <AccordionHeader eventKey="0">Formulas</AccordionHeader>
+    <Accordion>
+      <AccordionHeader>Formulas</AccordionHeader>
       <Accordion.Body>
         <ListGroup>
-          <Link>
-            <ListGroup.Item>Alveolar Air Equation</ListGroup.Item>
-          </Link>
+          <ListGroup.Item>
+            <Link>Alveolar Air Equation</Link>
+          </ListGroup.Item>
+
           <ListGroup.Item>
             <Link>
-              P<sub>a</sub>O<sub>2</sub>
+              P<sub>a</sub>O<sub>2</sub>/F<sub>i</sub>O<sub>2</sub>
             </Link>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Link>
+              O<sub>2</sub> Content
+            </Link>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Link>Analyze ABG</Link>
           </ListGroup.Item>
         </ListGroup>
       </Accordion.Body>

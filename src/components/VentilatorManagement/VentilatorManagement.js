@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 export default function VentilatorManagement() {
   return (
-    <Accordion defaultActiveKey="0">
-      <Accordion.Item eventKey="0">
+    <Accordion>
+      <Accordion.Item>
         <Accordion.Header>Ventilator Management</Accordion.Header>
         <Accordion.Body>
           <ListGroup>
             <ListGroup.Item>
-              <Link>Ideal Body Weight</Link>
+              <Link to="idealbodyweight">Ideal Body Weight</Link>
             </ListGroup.Item>
             <ListGroup.Item>
               <Link>
@@ -18,7 +18,7 @@ export default function VentilatorManagement() {
               </Link>
             </ListGroup.Item>
             <ListGroup.Item>
-              <Link>
+              <Link to="desiredfio2">
                 Desired FiO<sub>2</sub>
               </Link>
             </ListGroup.Item>
