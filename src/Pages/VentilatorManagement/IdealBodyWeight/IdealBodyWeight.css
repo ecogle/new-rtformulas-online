@@ -1,0 +1,22 @@
+.form-area{
+    padding: 5px;
+    min-width: 300px;
+    margin-left: 10px;
+}
+
+.radio-button-group{
+    width: 25%;
+}
+
+.hidden{
+    display: none;
+}
+label[id*="ans"]{
+    background-color: blue;
+    color:yellow;
+}
+
+button[id*="ans"]{
+    width:130px;
+}
+

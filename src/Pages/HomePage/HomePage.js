@@ -8,8 +8,8 @@ function HomePage() {
   return (
     <div className="homepage">
       <NavBar />
-      <VentilatorManagement />
-      <Formulas />
+      <VentilatorManagement eventKey="0" />
+      <Formulas eventKey="1" />
     </div>
   );
 }

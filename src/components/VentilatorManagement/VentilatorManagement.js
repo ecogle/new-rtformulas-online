@@ -2,10 +2,10 @@ import React from "react";
 import { Accordion, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function VentilatorManagement() {
+export default function VentilatorManagement(props) {
   return (
     <Accordion>
-      <Accordion.Item>
+      <Accordion.Item eventKey={props.eventKey}>
         <Accordion.Header>Ventilator Management</Accordion.Header>
         <Accordion.Body>
           <ListGroup>

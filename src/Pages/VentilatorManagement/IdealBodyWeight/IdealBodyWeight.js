@@ -1,5 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../../components/NavBar/NavBar";
+import "./IdealBodyWeight.css";
+import {
+  FloatingLabel,
+  Form,
+  ToggleButtonGroup,
+  InputGroup,
+  ToggleButton,
+  Container,
+  Row,
+  Col,
+  Button,
+} from "react-bootstrap";
 
 function IdealBodyWeight({ props }) {
   const [ptSex, setPtSex] = useState();
@@ -25,67 +37,123 @@ function IdealBodyWeight({ props }) {
     setAnswer(tempAnswer);
   };
 
-  return (
-    <div>
-      <NavBar />
-      <form>
-        <div className="ptSex" onSubmit={handleSubmit}>
-          <label>
-            <input
-              type="radio"
-              name="ptSex"
-              value="male"
-              checked={ptSex === "male"}
-              onChange={(e) => setPtSex(e.target.value)}
-            ></input>
-            Male
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="ptSex"
-              value="female"
-              checked={ptSex === "female"}
-              onChange={(e) => setPtSex(e.target.value)}
-            ></input>
-            Female
-          </label>
-        </div>
-        <div className="measurement">
-          <label>
-            <input
-              type="radio"
-              name="measurement"
-              value="inches"
-              checked={measurement === "inches"}
-              onChange={(e) => setMeasurement(e.target.value)}
-            ></input>
-            Inches
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="measurement"
-              value="centimeters"
-              checked={measurement === "centimeters"}
-              onChange={(e) => setMeasurement(e.target.value)}
-            ></input>
-            Centimeters
-          </label>
-        </div>
+  const measurements = [
+    { name: "inches", value: 1, displayName: "Inches" },
+    { name: "centimeters", value: 2, displayName: "Centimeters" },
+  ];
 
-        <div>
-          <label>height</label>
-          <input
-            type="text"
-            value={height}
-            onChange={(e) => setHeight(e.target.value)}
-          />
-        </div>
-        <button onClick={handleSubmit}>Calculate</button>
-        <div id="answer">{answer}</div>
-      </form>
-    </div>
+  const ptSexRadios = [
+    { name: "male", value: 1, displayName: "Male" },
+    { name: "female", value: 2, displayName: "Female" },
+  ];
+  useEffect(() => {
+    if (answer !== "") {
+      document.getElementById("ansKg").classList.remove("hidden");
+      document.getElementById("ansLbs").classList.remove("hidden");
+      document.getElementById("ansHr").classList.remove("hidden");
+    } else {
+      document.getElementById("ansKg").classList.add("hidden");
+      document.getElementById("ansLbs").classList.add("hidden");
+      document.getElementById("ansHr").classList.add("hidden");
+    }
+  });
+  return (
+    <>
+      <NavBar />
+      <Container className="form-area">
+        <Form>
+          <Form.Group>
+            <Row>
+              <Col>
+                <InputGroup className="mb-3">
+                  <ToggleButtonGroup name="ptSex">
+                    {ptSexRadios.map((ptSexRadio, idx) => (
+                      <ToggleButton
+                        key={idx}
+                        id={`ptSexRadio-${idx}`}
+                        type="radio"
+                        style={{ width: "130px" }}
+                        variant={"outline-primary"}
+                        value={ptSexRadio.name}
+                        checked={ptSex === ptSexRadio.name}
+                        onChange={(e) => setPtSex(e.currentTarget.value)}
+                      >
+                        {ptSexRadio.displayName}
+                      </ToggleButton>
+                    ))}
+                  </ToggleButtonGroup>
+                </InputGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <InputGroup className="mb-3">
+                  <ToggleButtonGroup type="radio" name="measurement">
+                    {measurements.map((measurement, idx) => {
+                      return (
+                        <ToggleButton
+                          key={idx}
+                          id={`radio-${idx}`}
+                          type="radio"
+                          style={{ width: "130px" }}
+                          variant={"outline-primary"}
+                          value={measurement.name}
+                          checked={measurement === measurement.name}
+                          onChange={(e) =>
+                            setMeasurement(e.currentTarget.value)
+                          }
+                        >
+                          {measurement.displayName}
+                        </ToggleButton>
+                      );
+                    })}
+                  </ToggleButtonGroup>
+                </InputGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <FloatingLabel
+                  controlId="heightLabel"
+                  label="Height"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                  />
+                </FloatingLabel>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button onClick={handleSubmit}>Calculate</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>&nbsp;</Col>
+            </Row>
+            <Row>
+              <Col id="ansHr">
+                <hr />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button id="ansKg" className="btn-danger">
+                  {answer} kg
+                </Button>
+                &nbsp;
+                <Button id="ansLbs" className="btn-danger">
+                  {Math.round(answer * 2.2)} lbs
+                </Button>
+              </Col>
+            </Row>
+          </Form.Group>
+        </Form>
+      </Container>
+    </>
   );
 }
 
