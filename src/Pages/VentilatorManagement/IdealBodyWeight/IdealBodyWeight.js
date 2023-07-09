@@ -121,6 +121,7 @@ function IdealBodyWeight({ props }) {
                   <Form.Control
                     type="text"
                     value={height}
+                    style={{ width: "260px" }}
                     onChange={(e) => setHeight(e.target.value)}
                   />
                 </FloatingLabel>
