@@ -5,12 +5,31 @@ function IdealBodyWeight({ props }) {
   const [ptSex, setPtSex] = useState();
   const [measurement, setMeasurement] = useState();
   const [height, setHeight] = useState(" ");
+  const [answer, setAnswer] = useState("");
+
+  const convertInches = (heightInInches) => {
+    return heightInInches * 2.54;
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let tempAnswer = 0;
+    let varHeight = height.trim();
+    let sexFactor = 45.5;
+    if (measurement === "inches") {
+      varHeight = convertInches(height);
+    }
+    if (ptSex === "male") {
+      sexFactor = 50;
+    }
+    tempAnswer = Math.round(sexFactor + 0.91 * (varHeight - 152.4));
+    setAnswer(tempAnswer);
+  };
 
   return (
     <div>
       <NavBar />
       <form>
-        <div className="ptSex">
+        <div className="ptSex" onSubmit={handleSubmit}>
           <label>
             <input
               type="radio"
@@ -63,8 +82,8 @@ function IdealBodyWeight({ props }) {
             onChange={(e) => setHeight(e.target.value)}
           />
         </div>
-        <div>{ptSex}</div>
-        <div>{measurement}</div>
+        <button onClick={handleSubmit}>Calculate</button>
+        <div id="answer">{answer}</div>
       </form>
     </div>
   );
