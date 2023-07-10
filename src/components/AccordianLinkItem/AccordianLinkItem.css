@@ -1,3 +1,14 @@
 .accordianLinkItem {
-    background-color: gray;
+  background-color: white;
+}
+.linkItem {
+  background-color: grey !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  color: white !important;
+  border-radius: 5em !important;
+}
+.linkItem:hover {
+  background-color: rgb(71, 117, 243) !important;
+  color: black !important;
 }

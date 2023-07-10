@@ -1,6 +1,5 @@
 import React from "react";
 import { Accordion, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import AccordianLinkItem from "../AccordianLinkItem/AccordianLinkItem";
 
 export default function VentilatorManagement(props) {
@@ -9,7 +8,7 @@ export default function VentilatorManagement(props) {
       <Accordion.Item eventKey={props.eventKey}>
         <Accordion.Header>Ventilator Management</Accordion.Header>
         <Accordion.Body>
-          <ListGroup>
+          <ListGroup style={{ backgroundColor: "gray" }}>
             <AccordianLinkItem
               displayName="Ideal Body Weight"
               linkTo="idealbodyweight"
@@ -19,19 +18,12 @@ export default function VentilatorManagement(props) {
               displayName="Desired FiO2"
               linkTo="desiredfio2"
             />
-            <ListGroup.Item>
-              <Link>
-                Desired V<sub>E</sub>
-              </Link>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <Link>
-                Desired V<sub>T</sub>
-              </Link>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <Link>Desired RR</Link>
-            </ListGroup.Item>
+            <AccordianLinkItem displayName="Desired Minute Volume" linkTo="/" />
+            <AccordianLinkItem displayName="Desired Tidal Volume" linkTo="/" />
+            <AccordianLinkItem
+              displayName="Desired Respiratory Rate"
+              linkTo="/"
+            />
           </ListGroup>
         </Accordion.Body>
       </Accordion.Item>
