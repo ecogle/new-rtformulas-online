@@ -17,6 +17,7 @@ root.render(
         <Route path="/" exact element={<App />} />
         <Route path="idealbodyweight" element={<IdealBodyWeight />} />
         <Route path="desiredfio2" element={<DesiredFIO2 />} />
+        <Route path="idealbodyweight/:id" element={<IdealBodyWeight />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

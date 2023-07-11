@@ -12,8 +12,11 @@ import {
   Col,
   Button,
 } from "react-bootstrap";
-
+import { useParams } from "react-router-dom";
+import InitialTidalVolume from "./InitialTidalVolume";
+let tempAnswer = 0;
 function IdealBodyWeight({ props }) {
+  const { id } = useParams();
   const [ptSex, setPtSex] = useState();
   const [measurement, setMeasurement] = useState();
   const [height, setHeight] = useState(" ");
@@ -23,9 +26,8 @@ function IdealBodyWeight({ props }) {
     return Math.round(heightInInches * 2.54 * 100) / 100;
   };
   const handleSubmit = (event) => {
-    debugger;
     event.preventDefault();
-    let tempAnswer = 0;
+
     let varHeight = height.trim();
     let sexFactor = 45.5;
     if (measurement === "inches") {
@@ -176,6 +178,7 @@ function IdealBodyWeight({ props }) {
           </Col>
         </Row>
       </Container>
+      <InitialTidalVolume ibw={tempAnswer} />
     </>
   );
 }

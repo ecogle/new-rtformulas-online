@@ -13,7 +13,10 @@ export default function VentilatorManagement(props) {
               displayName="Ideal Body Weight"
               linkTo="idealbodyweight"
             />
-            <AccordianLinkItem displayName="Initial Tidal Volume" linkTo="/" />
+            <AccordianLinkItem
+              displayName="Initial Tidal Volume"
+              linkTo="idealbodyweight/1"
+            />
             <AccordianLinkItem
               displayName="Desired FiO2"
               linkTo="desiredfio2"
