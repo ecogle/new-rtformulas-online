@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NavBar from "../../../components/NavBar/NavBar";
 import "./IdealBodyWeight.css";
 import {
@@ -14,14 +14,16 @@ import {
 } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import InitialTidalVolume from "./InitialTidalVolume";
-let tempAnswer = 0;
+
 function IdealBodyWeight({ props }) {
+  debugger;
+  let tempAnswer = 0;
   const { id } = useParams();
   const [ptSex, setPtSex] = useState();
   const [measurement, setMeasurement] = useState();
   const [height, setHeight] = useState(" ");
   const [answer, setAnswer] = useState("");
-
+  const prevAnswer = useRef([answer]);
   const convertInches = (heightInInches) => {
     return Math.round(heightInInches * 2.54 * 100) / 100;
   };
@@ -59,7 +61,11 @@ function IdealBodyWeight({ props }) {
       document.getElementById("ansLbs").classList.add("hidden");
       document.getElementById("ansHr").classList.add("hidden");
     }
-  });
+
+    if (prevAnswer.current !== answer) {
+    }
+    prevAnswer.current = answer;
+  }, [answer]);
   return (
     <>
       <NavBar />
@@ -178,7 +184,7 @@ function IdealBodyWeight({ props }) {
           </Col>
         </Row>
       </Container>
-      <InitialTidalVolume ibw={tempAnswer} />
+      {id === "1" && <InitialTidalVolume answer={answer} />}
     </>
   );
 }
