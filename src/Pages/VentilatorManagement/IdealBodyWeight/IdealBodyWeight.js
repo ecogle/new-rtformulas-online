@@ -16,7 +16,6 @@ import { useParams } from "react-router-dom";
 import InitialTidalVolume from "./InitialTidalVolume";
 
 function IdealBodyWeight({ props }) {
-  debugger;
   let tempAnswer = 0;
   const { id } = useParams();
   const [ptSex, setPtSex] = useState();
