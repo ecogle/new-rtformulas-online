@@ -21,7 +21,10 @@ export default function VentilatorManagement(props) {
               displayName="Desired FiO2"
               linkTo="desiredfio2"
             />
-            <AccordianLinkItem displayName="Desired Minute Volume" linkTo="/" />
+            <AccordianLinkItem
+              displayName="Desired Minute Volume"
+              linkTo="desiredve"
+            />
             <AccordianLinkItem displayName="Desired Tidal Volume" linkTo="/" />
             <AccordianLinkItem
               displayName="Desired Respiratory Rate"

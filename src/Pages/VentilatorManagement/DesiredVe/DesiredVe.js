@@ -3,52 +3,38 @@ import NavBar from "../../../components/NavBar/NavBar";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 
-function DesiredFIO2({ props }) {
-  const [dpao2, setDpao2] = useState("");
-  const [kfio2, setKfio2] = useState("");
-  const [kpao2, setkpao2] = useState("");
+function DesiredVe({ props }) {
+  const [kve, setkve] = useState("");
+  const [kpaco2, setkpaco2] = useState("");
+  const [dpaco2, setdpaco2] = useState("");
 
-  const [dfio2, setDfio2] = useState("");
+  const [dve, setdve] = useState("");
 
-  const kpao2Input = useRef();
-  const kfio2Input = useRef();
-  const dpao2Input = useRef();
+  const dpaco2Input = useRef();
+  const kpaco2Input = useRef();
+  const kveInput = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let answer = (dpao2 * kfio2) / kpao2;
-    setDfio2(answer);
+    let answer = (kve * kpaco2) / dpaco2;
+    setdve(answer);
   };
-
-  const validateDpao2 = (e) => {
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      setDpao2(e.target.value);
-    }
-  };
-
-  const validateKpao2 = (e) => {
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      setkpao2(e.target.value);
-    }
-  };
-
   const handleClearForm = (event) => {
+    debugger;
     event.preventDefault();
-    setKfio2("");
-    setDfio2("");
-    setDpao2("");
-    setkpao2("");
+    dpaco2Input.current.value = "";
+    kveInput.current.value = "";
+    kpaco2Input.current.value = "";
+    setdve(21);
   };
 
   return (
     <>
       <NavBar />
       <div style={{ margin: "auto" }}>
-        <h2 style={{ margin: "auto", textAlign: "center" }}>Desired FiO2</h2>
+        <h2 style={{ margin: "auto", textAlign: "center" }}>
+          Desired Minute Volume
+        </h2>
       </div>
       <Container
         style={{
@@ -66,39 +52,39 @@ function DesiredFIO2({ props }) {
             <Form>
               <Row>
                 <Col>
-                  <Form.Label>Desired PaO2</Form.Label>
+                  <Form.Label>Known VE</Form.Label>
                   <Form.Control
-                    ref={dpao2Input}
-                    name="dpao2"
-                    id="dpao2"
-                    value={dpao2}
-                    onChange={(e) => validateDpao2(e)}
+                    ref={kveInput}
+                    name="kve"
+                    id="kve"
+                    value={kve}
+                    onChange={(e) => setkve(e.target.value)}
                     type="text"
                   ></Form.Control>
                 </Col>
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known FiO2</Form.Label>
+                  <Form.Label>Known PaCO2</Form.Label>
                   <Form.Control
-                    ref={kfio2Input}
-                    id="kfio2"
-                    name="kfio2"
-                    value={kfio2}
-                    onChange={(e) => setKfio2(e.target.value)}
+                    ref={kpaco2Input}
+                    id="kpaco2"
+                    name="kpaco2"
+                    value={kpaco2}
+                    onChange={(e) => setkpaco2(e.target.value)}
                     type="text"
                   ></Form.Control>
                 </Col>
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known PaO2</Form.Label>
+                  <Form.Label>Desired PaCO2</Form.Label>
                   <Form.Control
-                    ref={kpao2Input}
-                    name="kpao2"
-                    id="kpao2"
-                    value={kpao2}
-                    onChange={(e) => validateKpao2(e)}
+                    ref={dpaco2Input}
+                    name="dpaco2"
+                    id="dpaco2"
+                    value={dpaco2}
+                    onChange={(e) => setdpaco2(e.target.value)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -130,7 +116,7 @@ function DesiredFIO2({ props }) {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    FiO2: {(dfio2 / 100).toFixed(2)}
+                    FiO2: {dve}
                   </Button>
                 </Col>
               </Row>
@@ -139,7 +125,7 @@ function DesiredFIO2({ props }) {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>DFio2 = DPaO2 * KFiO2 / KPaO2</Col>
+              <Col>Desired VE = (kVE * kPaCO2)/dPaCO2</Col>
             </Row>
           </Col>
         </Row>
@@ -148,4 +134,4 @@ function DesiredFIO2({ props }) {
   );
 }
 
-export default DesiredFIO2;
+export default DesiredVe;

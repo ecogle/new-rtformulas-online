@@ -8,6 +8,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import * as bs from "bootstrap/dist/css/bootstrap.css";
 import IdealBodyWeight from "./Pages/VentilatorManagement/IdealBodyWeight/IdealBodyWeight";
 import DesiredFIO2 from "./Pages/VentilatorManagement/DesiredFIO2/DesiredFIO2";
+import DesiredVe from "./Pages/VentilatorManagement/DesiredVe/DesiredVe";
+import DesiredFIO2x from "./Pages/VentilatorManagement/DesiredFIO2/DesiredFIO2_x";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +20,7 @@ root.render(
         <Route path="idealbodyweight" element={<IdealBodyWeight />} />
         <Route path="desiredfio2" element={<DesiredFIO2 />} />
         <Route path="idealbodyweight/:id" element={<IdealBodyWeight />} />
+        <Route path="desiredve" element={<DesiredVe />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

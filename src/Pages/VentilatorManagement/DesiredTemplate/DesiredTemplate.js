@@ -3,52 +3,38 @@ import NavBar from "../../../components/NavBar/NavBar";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 
-function DesiredFIO2({ props }) {
-  const [dpao2, setDpao2] = useState("");
-  const [kfio2, setKfio2] = useState("");
-  const [kpao2, setkpao2] = useState("");
+function DesiredTemplate(props) {
+  debugger;
+  const [known1, setknown1] = useState("");
+  const [known2, setknown2] = useState("");
+  const [desired1, setdesired1] = useState("");
 
-  const [dfio2, setDfio2] = useState("");
+  const [desiredResult, setdesiredResult] = useState("");
 
-  const kpao2Input = useRef();
-  const kfio2Input = useRef();
-  const dpao2Input = useRef();
+  const desired1Input = useRef();
+  const known2Input = useRef();
+  const known1Input = useRef();
+  const { title, label1, label2, label3, desiredResultLabel } = props.vars;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let answer = (dpao2 * kfio2) / kpao2;
-    setDfio2(answer);
+    let answer = (known1 * known2) / desired1;
+    setdesiredResult(answer);
   };
-
-  const validateDpao2 = (e) => {
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      setDpao2(e.target.value);
-    }
-  };
-
-  const validateKpao2 = (e) => {
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      setkpao2(e.target.value);
-    }
-  };
-
   const handleClearForm = (event) => {
+    debugger;
     event.preventDefault();
-    setKfio2("");
-    setDfio2("");
-    setDpao2("");
-    setkpao2("");
+    desired1Input.current.value = "";
+    known1Input.current.value = "";
+    known2Input.current.value = "";
+    setdesiredResult(21);
   };
 
   return (
     <>
       <NavBar />
       <div style={{ margin: "auto" }}>
-        <h2 style={{ margin: "auto", textAlign: "center" }}>Desired FiO2</h2>
+        <h2 style={{ margin: "auto", textAlign: "center" }}>{title}</h2>
       </div>
       <Container
         style={{
@@ -66,39 +52,39 @@ function DesiredFIO2({ props }) {
             <Form>
               <Row>
                 <Col>
-                  <Form.Label>Desired PaO2</Form.Label>
+                  <Form.Label>{label1}</Form.Label>
                   <Form.Control
-                    ref={dpao2Input}
-                    name="dpao2"
-                    id="dpao2"
-                    value={dpao2}
-                    onChange={(e) => validateDpao2(e)}
+                    ref={known1Input}
+                    name="known1"
+                    id="known1"
+                    value={known1}
+                    onChange={(e) => setknown1(e.target.value)}
                     type="text"
                   ></Form.Control>
                 </Col>
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known FiO2</Form.Label>
+                  <Form.Label>{label2}</Form.Label>
                   <Form.Control
-                    ref={kfio2Input}
-                    id="kfio2"
-                    name="kfio2"
-                    value={kfio2}
-                    onChange={(e) => setKfio2(e.target.value)}
+                    ref={known2Input}
+                    id="known2"
+                    name="known2"
+                    value={known2}
+                    onChange={(e) => setknown2(e.target.value)}
                     type="text"
                   ></Form.Control>
                 </Col>
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known PaO2</Form.Label>
+                  <Form.Label>{label3}</Form.Label>
                   <Form.Control
-                    ref={kpao2Input}
-                    name="kpao2"
-                    id="kpao2"
-                    value={kpao2}
-                    onChange={(e) => validateKpao2(e)}
+                    ref={desired1Input}
+                    name="desired1"
+                    id="desired1"
+                    value={desired1}
+                    onChange={(e) => setdesired1(e.target.value)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -130,7 +116,7 @@ function DesiredFIO2({ props }) {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    FiO2: {(dfio2 / 100).toFixed(2)}
+                    {desiredResultLabel}: {desiredResult}
                   </Button>
                 </Col>
               </Row>
@@ -139,7 +125,9 @@ function DesiredFIO2({ props }) {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>DFio2 = DPaO2 * KFiO2 / KPaO2</Col>
+              <Col>
+                {title} = ({label1} * {label2})/{label3}
+              </Col>
             </Row>
           </Col>
         </Row>
@@ -148,4 +136,4 @@ function DesiredFIO2({ props }) {
   );
 }
 
-export default DesiredFIO2;
+export default DesiredTemplate;
