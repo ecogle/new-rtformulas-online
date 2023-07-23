@@ -3,6 +3,7 @@ import NavBar from "../../../components/NavBar/NavBar";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 import Footer from "../../../components/footer/footer";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 function DesiredFIO2({ props }) {
   const [dpao2, setDpao2] = useState("");
@@ -47,9 +48,7 @@ function DesiredFIO2({ props }) {
   return (
     <>
       <NavBar />
-      <div style={{ margin: "auto" }}>
-        <h2 style={{ margin: "auto", textAlign: "center" }}>Desired FiO2</h2>
-      </div>
+      <PageTitle title="Desired FiO2" />
       <Container
         style={{
           width: "100%",

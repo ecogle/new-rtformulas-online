@@ -5,29 +5,29 @@ import Footer from "../../../components/footer/footer";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 
-function DesiredTidalVolume() {
-  const [kvt, setkvt] = useState("");
+function DesiredRR() {
+  const [krr, setkrr] = useState("");
   const [kpaco2, setkpaco2] = useState("");
   const [dpaco2, setdpaco2] = useState("");
 
-  const [dvt, setdvt] = useState("0");
+  const [drr, setdrr] = useState("0");
 
   const dpaco2Input = useRef();
   const kpaco2Input = useRef();
-  const kvtInput = useRef();
+  const krrInput = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let answer = (kvt * kpaco2) / dpaco2;
-    isNaN(answer) ? setdvt("0") : setdvt(Math.round(answer));
+    let answer = (krr * kpaco2) / dpaco2;
+    isNaN(answer) ? setdrr("0") : setdrr(Math.round(answer));
   };
   const handleClearForm = (event) => {
     debugger;
     event.preventDefault();
     setdpaco2("");
-    setdvt("0");
+    setdrr("0");
     setkpaco2("");
-    setkvt("");
+    setkrr("");
   };
 
   const validateNumber = (e) => {
@@ -39,15 +39,16 @@ function DesiredTidalVolume() {
         setkpaco2(e.target.value);
       } else if (e.target.name === "dpaco2") {
         setdpaco2(e.target.value);
-      } else if (e.target.name === "kvt") {
-        setkvt(e.target.value);
+      } else if (e.target.name === "krr") {
+        setkrr(e.target.value);
       }
     }
   };
   return (
     <>
       <NavBar />
-      <PageTitle title="Desired Tidal Volume" />
+      <PageTitle title="Desired Respiratory Rate" />
+
       <Container
         style={{
           width: "100%",
@@ -64,12 +65,12 @@ function DesiredTidalVolume() {
             <Form>
               <Row>
                 <Col>
-                  <Form.Label>Known VT</Form.Label>
+                  <Form.Label>Known RR</Form.Label>
                   <Form.Control
-                    ref={kvtInput}
-                    name="kvt"
-                    id="kvt"
-                    value={kvt}
+                    ref={krrInput}
+                    name="krr"
+                    id="krr"
+                    value={krr}
                     onChange={(e) => validateNumber(e)}
                     type="text"
                   ></Form.Control>
@@ -128,7 +129,7 @@ function DesiredTidalVolume() {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    Tidal Volume: {dvt}ml
+                    BPM: {drr}
                   </Button>
                 </Col>
               </Row>
@@ -137,7 +138,7 @@ function DesiredTidalVolume() {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>Desired VT = (kvt * kPaCO2)/dPaCO2</Col>
+              <Col>Desired VT = (krr * kPaCO2)/dPaCO2</Col>
             </Row>
           </Col>
         </Row>
@@ -147,4 +148,4 @@ function DesiredTidalVolume() {
   );
 }
 
-export default DesiredTidalVolume;
+export default DesiredRR;

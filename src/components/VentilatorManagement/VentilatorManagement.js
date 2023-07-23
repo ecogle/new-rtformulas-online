@@ -31,7 +31,7 @@ export default function VentilatorManagement(props) {
             />
             <AccordianLinkItem
               displayName="Desired Respiratory Rate"
-              linkTo="/"
+              linkTo="desiredrr"
             />
           </ListGroup>
         </Accordion.Body>

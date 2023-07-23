@@ -10,6 +10,7 @@ import IdealBodyWeight from "./Pages/VentilatorManagement/IdealBodyWeight/IdealB
 import DesiredFIO2 from "./Pages/VentilatorManagement/DesiredFIO2/DesiredFIO2";
 import DesiredVe from "./Pages/VentilatorManagement/DesiredVe/DesiredVe";
 import DesiredTidalVolume from "./Pages/VentilatorManagement/DesiredTidalVolume/DesiredTidalVolume";
+import DesiredRR from "./Pages/VentilatorManagement/DesiredRR/DesiredRR";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         <Route path="idealbodyweight/:id" element={<IdealBodyWeight />} />
         <Route path="desiredve" element={<DesiredVe />} />
         <Route path="desiredvt" element={<DesiredTidalVolume />} />
+        <Route path="desiredrr" element={<DesiredRR />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

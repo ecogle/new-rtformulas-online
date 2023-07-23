@@ -3,6 +3,7 @@ import NavBar from "../../../components/NavBar/NavBar";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 import Footer from "../../../components/footer/footer";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 function DesiredVe() {
   const [kve, setkve] = useState("");
@@ -46,11 +47,7 @@ function DesiredVe() {
   return (
     <>
       <NavBar />
-      <div style={{ margin: "auto" }}>
-        <h2 style={{ margin: "auto", textAlign: "center" }}>
-          Desired Minute Volume
-        </h2>
-      </div>
+      <PageTitle title="Desired Minute Volume" />
       <Container
         style={{
           width: "100%",

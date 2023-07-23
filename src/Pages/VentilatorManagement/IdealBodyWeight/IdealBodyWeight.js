@@ -15,6 +15,7 @@ import {
 import { useParams } from "react-router-dom";
 import InitialTidalVolume from "./InitialTidalVolume";
 import Footer from "../../../components/footer/footer";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 function IdealBodyWeight({ props }) {
   let tempAnswer = 0;
@@ -72,9 +73,7 @@ function IdealBodyWeight({ props }) {
   return (
     <>
       <NavBar />
-      <div style={{ margin: "auto" }}>
-        <h2 style={{ margin: "auto", textAlign: "center" }}>{title}</h2>
-      </div>
+      <PageTitle title={title} />
       <Container className="form-area">
         <Row>
           <Col>
