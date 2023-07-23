@@ -1,32 +1,32 @@
-import React, { useRef } from "react";
+import React from "react";
+import { useState, useRef } from "react";
 import NavBar from "../../../components/NavBar/NavBar";
-import { Container, Form, Row, Col, Button } from "react-bootstrap";
-import { useState } from "react";
 import Footer from "../../../components/footer/footer";
+import { Container, Form, Button, Row, Col } from "react-bootstrap";
 
-function DesiredVe() {
-  const [kve, setkve] = useState("");
+function DesiredTidalVolume() {
+  const [kvt, setkvt] = useState("");
   const [kpaco2, setkpaco2] = useState("");
   const [dpaco2, setdpaco2] = useState("");
 
-  const [dve, setdve] = useState("");
+  const [dvt, setdvt] = useState("0");
 
   const dpaco2Input = useRef();
   const kpaco2Input = useRef();
-  const kveInput = useRef();
+  const kvtInput = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let answer = (kve * kpaco2) / dpaco2;
-    setdve(Math.round(answer * 10) / 10);
+    let answer = (kvt * kpaco2) / dpaco2;
+    isNaN(answer) ? setdvt("0") : setdvt(Math.round(answer));
   };
   const handleClearForm = (event) => {
     debugger;
     event.preventDefault();
     setdpaco2("");
-    setdve("");
+    setdvt("0");
     setkpaco2("");
-    setkve("");
+    setkvt("");
   };
 
   const validateNumber = (e) => {
@@ -38,8 +38,8 @@ function DesiredVe() {
         setkpaco2(e.target.value);
       } else if (e.target.name === "dpaco2") {
         setdpaco2(e.target.value);
-      } else if (e.target.name === "kve") {
-        setkve(e.target.value);
+      } else if (e.target.name === "kvt") {
+        setkvt(e.target.value);
       }
     }
   };
@@ -48,7 +48,7 @@ function DesiredVe() {
       <NavBar />
       <div style={{ margin: "auto" }}>
         <h2 style={{ margin: "auto", textAlign: "center" }}>
-          Desired Minute Volume
+          Desired Tidal Volume
         </h2>
       </div>
       <Container
@@ -67,12 +67,12 @@ function DesiredVe() {
             <Form>
               <Row>
                 <Col>
-                  <Form.Label>Known VE</Form.Label>
+                  <Form.Label>Known VT</Form.Label>
                   <Form.Control
-                    ref={kveInput}
-                    name="kve"
-                    id="kve"
-                    value={kve}
+                    ref={kvtInput}
+                    name="kvt"
+                    id="kvt"
+                    value={kvt}
                     onChange={(e) => validateNumber(e)}
                     type="text"
                   ></Form.Control>
@@ -131,7 +131,7 @@ function DesiredVe() {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    FiO2: {dve}
+                    Tidal Volume: {dvt}ml
                   </Button>
                 </Col>
               </Row>
@@ -140,7 +140,7 @@ function DesiredVe() {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>Desired VE = (kVE * kPaCO2)/dPaCO2</Col>
+              <Col>Desired VT = (kvt * kPaCO2)/dPaCO2</Col>
             </Row>
           </Col>
         </Row>
@@ -150,4 +150,4 @@ function DesiredVe() {
   );
 }
 
-export default DesiredVe;
+export default DesiredTidalVolume;

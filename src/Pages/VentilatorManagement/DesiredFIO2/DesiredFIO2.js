@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import NavBar from "../../../components/NavBar/NavBar";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
+import Footer from "../../../components/footer/footer";
 
 function DesiredFIO2({ props }) {
   const [dpao2, setDpao2] = useState("");
@@ -142,6 +143,7 @@ function DesiredFIO2({ props }) {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }

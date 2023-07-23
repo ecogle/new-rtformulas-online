@@ -14,6 +14,7 @@ import {
 } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import InitialTidalVolume from "./InitialTidalVolume";
+import Footer from "../../../components/footer/footer";
 
 function IdealBodyWeight({ props }) {
   let tempAnswer = 0;
@@ -190,6 +191,7 @@ function IdealBodyWeight({ props }) {
         </Row>
       </Container>
       {id === "1" && <InitialTidalVolume answer={answer} />}
+      <Footer />
     </>
   );
 }

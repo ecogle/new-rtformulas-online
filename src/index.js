@@ -9,7 +9,7 @@ import * as bs from "bootstrap/dist/css/bootstrap.css";
 import IdealBodyWeight from "./Pages/VentilatorManagement/IdealBodyWeight/IdealBodyWeight";
 import DesiredFIO2 from "./Pages/VentilatorManagement/DesiredFIO2/DesiredFIO2";
 import DesiredVe from "./Pages/VentilatorManagement/DesiredVe/DesiredVe";
-import DesiredFIO2x from "./Pages/VentilatorManagement/DesiredFIO2/DesiredFIO2_x";
+import DesiredTidalVolume from "./Pages/VentilatorManagement/DesiredTidalVolume/DesiredTidalVolume";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +21,7 @@ root.render(
         <Route path="desiredfio2" element={<DesiredFIO2 />} />
         <Route path="idealbodyweight/:id" element={<IdealBodyWeight />} />
         <Route path="desiredve" element={<DesiredVe />} />
+        <Route path="desiredvt" element={<DesiredTidalVolume />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
