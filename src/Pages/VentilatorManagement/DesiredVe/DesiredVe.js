@@ -17,17 +17,31 @@ function DesiredVe({ props }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     let answer = (kve * kpaco2) / dpaco2;
-    setdve(answer);
+    setdve(Math.round(answer * 10) / 10);
   };
   const handleClearForm = (event) => {
     debugger;
     event.preventDefault();
-    dpaco2Input.current.value = "";
-    kveInput.current.value = "";
-    kpaco2Input.current.value = "";
-    setdve(21);
+    setdpaco2("");
+    setdve("");
+    setkpaco2("");
+    setkve("");
   };
 
+  const validateNumber = (e) => {
+    debugger;
+    if (isNaN(e.target.value)) {
+      alert("Only numbers are allowed.");
+    } else {
+      if (e.target.name === "kpaco2") {
+        setkpaco2(e.target.value);
+      } else if (e.target.name === "dpaco2") {
+        setdpaco2(e.target.value);
+      } else if (e.target.name === "kve") {
+        setkve(e.target.value);
+      }
+    }
+  };
   return (
     <>
       <NavBar />
@@ -58,7 +72,7 @@ function DesiredVe({ props }) {
                     name="kve"
                     id="kve"
                     value={kve}
-                    onChange={(e) => setkve(e.target.value)}
+                    onChange={(e) => validateNumber(e)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -71,7 +85,7 @@ function DesiredVe({ props }) {
                     id="kpaco2"
                     name="kpaco2"
                     value={kpaco2}
-                    onChange={(e) => setkpaco2(e.target.value)}
+                    onChange={(e) => validateNumber(e)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -84,7 +98,7 @@ function DesiredVe({ props }) {
                     name="dpaco2"
                     id="dpaco2"
                     value={dpaco2}
-                    onChange={(e) => setdpaco2(e.target.value)}
+                    onChange={(e) => validateNumber(e)}
                     type="text"
                   ></Form.Control>
                 </Col>

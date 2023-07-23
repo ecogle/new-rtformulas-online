@@ -18,6 +18,7 @@ import InitialTidalVolume from "./InitialTidalVolume";
 function IdealBodyWeight({ props }) {
   let tempAnswer = 0;
   const { id } = useParams();
+  const [title, setTitle] = useState("Ideal Body Weight");
   const [ptSex, setPtSex] = useState();
   const [measurement, setMeasurement] = useState();
   const [height, setHeight] = useState(" ");
@@ -60,14 +61,19 @@ function IdealBodyWeight({ props }) {
       document.getElementById("ansLbs").classList.add("hidden");
       document.getElementById("ansHr").classList.add("hidden");
     }
-
+    if (id === "1") {
+      setTitle("Initial Tidal Volume");
+    }
     if (prevAnswer.current !== answer) {
     }
     prevAnswer.current = answer;
-  }, [answer]);
+  }, [answer, id, title]);
   return (
     <>
       <NavBar />
+      <div style={{ margin: "auto" }}>
+        <h2 style={{ margin: "auto", textAlign: "center" }}>{title}</h2>
+      </div>
       <Container className="form-area">
         <Row>
           <Col>
@@ -165,7 +171,7 @@ function IdealBodyWeight({ props }) {
             </Form>
           </Col>
           <Col>
-            <h3>Formula</h3>
+            <h4>Formula</h4>
             <Row>
               <Col xs lg="2">
                 Male:

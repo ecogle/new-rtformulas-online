@@ -20,19 +20,18 @@ function DesiredFIO2({ props }) {
     setDfio2(answer);
   };
 
-  const validateDpao2 = (e) => {
+  const validateNumber = (e) => {
+    debugger;
     if (isNaN(e.target.value)) {
       alert("Only numbers are allowed.");
     } else {
-      setDpao2(e.target.value);
-    }
-  };
-
-  const validateKpao2 = (e) => {
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      setkpao2(e.target.value);
+      if (e.target.name === "kpao2") {
+        setkpao2(e.target.value);
+      } else if (e.target.name === "dpao2") {
+        setDpao2(e.target.value);
+      } else if (e.target.name === "kfio2") {
+        setKfio2(e.target.value);
+      }
     }
   };
 
@@ -72,7 +71,7 @@ function DesiredFIO2({ props }) {
                     name="dpao2"
                     id="dpao2"
                     value={dpao2}
-                    onChange={(e) => validateDpao2(e)}
+                    onChange={(e) => validateNumber(e)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -85,8 +84,7 @@ function DesiredFIO2({ props }) {
                     id="kfio2"
                     name="kfio2"
                     value={kfio2}
-                    onChange={(e) => setKfio2(e.target.value)}
-                    type="text"
+                    onChange={(e) => validateNumber(e)}
                   ></Form.Control>
                 </Col>
               </Row>
@@ -98,7 +96,7 @@ function DesiredFIO2({ props }) {
                     name="kpao2"
                     id="kpao2"
                     value={kpao2}
-                    onChange={(e) => validateKpao2(e)}
+                    onChange={(e) => validateNumber(e)}
                     type="text"
                   ></Form.Control>
                 </Col>
