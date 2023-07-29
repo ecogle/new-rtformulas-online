@@ -12,6 +12,7 @@ import DesiredVe from "./Pages/VentilatorManagement/DesiredVe/DesiredVe";
 import DesiredTidalVolume from "./Pages/VentilatorManagement/DesiredTidalVolume/DesiredTidalVolume";
 import DesiredRR from "./Pages/VentilatorManagement/DesiredRR/DesiredRR";
 import AlveolarAirEquation from "./Pages/Formulas/AlveolarAirEquation";
+import PaO2FiO2Ratio from "./Pages/Formulas/Pao2fiosration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,6 +27,7 @@ root.render(
         <Route path="desiredvt" element={<DesiredTidalVolume />} />
         <Route path="desiredrr" element={<DesiredRR />} />
         <Route path="alveolarairequation" element={<AlveolarAirEquation />} />
+        <Route path="pao2fio2ratio" element={<PaO2FiO2Ratio />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
