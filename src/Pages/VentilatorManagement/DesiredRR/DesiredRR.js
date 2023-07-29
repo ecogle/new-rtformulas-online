@@ -5,6 +5,7 @@ import Footer from "../../../components/footer/footer";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
+import PaCO2 from "../../../components/Subs/Paco2";
 
 function DesiredRR() {
   const [krr, setkrr] = useState("");
@@ -65,7 +66,9 @@ function DesiredRR() {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known PaCO2</Form.Label>
+                  <Form.Label>
+                    Known <PaCO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={kpaco2Input}
                     id="kpaco2"
@@ -78,7 +81,9 @@ function DesiredRR() {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Desired PaCO2</Form.Label>
+                  <Form.Label>
+                    Desired <PaCO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={dpaco2Input}
                     name="dpaco2"
@@ -125,7 +130,9 @@ function DesiredRR() {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>Desired VT = (krr * kPaCO2)/dPaCO2</Col>
+              <Col>
+                Desired RR = (KRR * K<PaCO2 />) / D<PaCO2 />
+              </Col>
             </Row>
           </Col>
         </Row>

@@ -5,6 +5,8 @@ import { useState } from "react";
 import Footer from "../../../components/footer/footer";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber, ValidateFiO2 } from "../../../Utilities/Utilities";
+import Fio2 from "../../../components/Subs/Fio2";
+import PaO2 from "../../../components/Subs/Pao2";
 
 function DesiredFIO2({ props }) {
   const [dpao2, setDpao2] = useState("");
@@ -18,7 +20,6 @@ function DesiredFIO2({ props }) {
   const dpao2Input = useRef();
 
   const handleSubmit = (event) => {
-    debugger;
     event.preventDefault();
     let tempFio2 = ValidateFiO2(kfio2);
     let answer = dpao2 * (tempFio2 / kpao2);
@@ -53,7 +54,9 @@ function DesiredFIO2({ props }) {
             <Form>
               <Row>
                 <Col>
-                  <Form.Label>Desired PaO2</Form.Label>
+                  <Form.Label>
+                    Desired <PaO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={dpao2Input}
                     name="dpao2"
@@ -66,7 +69,9 @@ function DesiredFIO2({ props }) {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known FiO2</Form.Label>
+                  <Form.Label>
+                    Known <Fio2 />
+                  </Form.Label>
                   <Form.Control
                     ref={kfio2Input}
                     id="kfio2"
@@ -80,7 +85,9 @@ function DesiredFIO2({ props }) {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known PaO2</Form.Label>
+                  <Form.Label>
+                    Known <PaO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={kpao2Input}
                     name="kpao2"
@@ -118,7 +125,7 @@ function DesiredFIO2({ props }) {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    FiO2: {dfio2}
+                    <Fio2 />: {dfio2}
                   </Button>
                 </Col>
               </Row>
@@ -127,7 +134,10 @@ function DesiredFIO2({ props }) {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>DFio2 = DPaO2 * KFiO2 / KPaO2</Col>
+              <Col>
+                D<Fio2 /> = D<PaO2 /> * (K
+                <Fio2 /> / K<PaO2 />)
+              </Col>
             </Row>
           </Col>
         </Row>

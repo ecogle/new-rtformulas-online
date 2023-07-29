@@ -5,6 +5,8 @@ import { useState } from "react";
 import Footer from "../../../components/footer/footer";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
+import Ve from "../../../components/Subs/Ve";
+import PaCO2 from "../../../components/Subs/Paco2";
 
 function DesiredVe() {
   const [kve, setkve] = useState("");
@@ -51,7 +53,9 @@ function DesiredVe() {
             <Form>
               <Row>
                 <Col>
-                  <Form.Label>Known VE</Form.Label>
+                  <Form.Label>
+                    Known <Ve />
+                  </Form.Label>
                   <Form.Control
                     ref={kveInput}
                     name="kve"
@@ -64,7 +68,9 @@ function DesiredVe() {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known PaCO2</Form.Label>
+                  <Form.Label>
+                    Known <PaCO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={kpaco2Input}
                     id="kpaco2"
@@ -77,7 +83,9 @@ function DesiredVe() {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Desired PaCO2</Form.Label>
+                  <Form.Label>
+                    Desired <PaCO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={dpaco2Input}
                     name="dpaco2"
@@ -115,7 +123,7 @@ function DesiredVe() {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    FiO2: {dve}
+                    <Ve /> : {dve}
                   </Button>
                 </Col>
               </Row>
@@ -124,7 +132,10 @@ function DesiredVe() {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>Desired VE = (kVE * kPaCO2)/dPaCO2</Col>
+              <Col>
+                Desired <Ve /> = (K
+                <Ve /> * K<PaCO2 />) / D<PaCO2 />
+              </Col>
             </Row>
           </Col>
         </Row>

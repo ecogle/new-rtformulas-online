@@ -5,6 +5,8 @@ import Footer from "../../../components/footer/footer";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
+import Vt from "../../../components/Subs/Vt";
+import PaCO2 from "../../../components/Subs/Paco2";
 
 function DesiredTidalVolume() {
   const [kvt, setkvt] = useState("");
@@ -51,7 +53,9 @@ function DesiredTidalVolume() {
             <Form>
               <Row>
                 <Col>
-                  <Form.Label>Known VT</Form.Label>
+                  <Form.Label>
+                    Known <Vt />
+                  </Form.Label>
                   <Form.Control
                     ref={kvtInput}
                     name="kvt"
@@ -64,7 +68,9 @@ function DesiredTidalVolume() {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Known PaCO2</Form.Label>
+                  <Form.Label>
+                    Known <PaCO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={kpaco2Input}
                     id="kpaco2"
@@ -77,7 +83,9 @@ function DesiredTidalVolume() {
               </Row>
               <Row style={{ paddingTop: "20px" }}>
                 <Col>
-                  <Form.Label>Desired PaCO2</Form.Label>
+                  <Form.Label>
+                    Desired <PaCO2 />
+                  </Form.Label>
                   <Form.Control
                     ref={dpaco2Input}
                     name="dpaco2"
@@ -115,7 +123,7 @@ function DesiredTidalVolume() {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    Tidal Volume: {dvt}ml
+                    <Vt />: {dvt}ml
                   </Button>
                 </Col>
               </Row>
@@ -124,7 +132,10 @@ function DesiredTidalVolume() {
           <Col>
             <h4>Formula</h4>
             <Row>
-              <Col>Desired VT = (kvt * kPaCO2)/dPaCO2</Col>
+              <Col>
+                Desired <Vt /> = (k
+                <Vt /> * K<PaCO2 />) / D<PaCO2 />
+              </Col>
             </Row>
           </Col>
         </Row>
