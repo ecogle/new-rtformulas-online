@@ -4,6 +4,7 @@ import NavBar from "../../../components/NavBar/NavBar";
 import Footer from "../../../components/footer/footer";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import PageTitle from "../../../components/PageTitle/PageTitle";
+import { ValidateNumber } from "../../../Utilities/Utilities";
 
 function DesiredRR() {
   const [krr, setkrr] = useState("");
@@ -30,20 +31,6 @@ function DesiredRR() {
     setkrr("");
   };
 
-  const validateNumber = (e) => {
-    debugger;
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      if (e.target.name === "kpaco2") {
-        setkpaco2(e.target.value);
-      } else if (e.target.name === "dpaco2") {
-        setdpaco2(e.target.value);
-      } else if (e.target.name === "krr") {
-        setkrr(e.target.value);
-      }
-    }
-  };
   return (
     <>
       <NavBar />
@@ -71,7 +58,7 @@ function DesiredRR() {
                     name="krr"
                     id="krr"
                     value={krr}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setkrr)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -84,7 +71,7 @@ function DesiredRR() {
                     id="kpaco2"
                     name="kpaco2"
                     value={kpaco2}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setkpaco2)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -97,7 +84,7 @@ function DesiredRR() {
                     name="dpaco2"
                     id="dpaco2"
                     value={dpaco2}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setdpaco2)}
                     type="text"
                   ></Form.Control>
                 </Col>

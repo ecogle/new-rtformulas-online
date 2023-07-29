@@ -11,7 +11,10 @@ export default function Formulas(props) {
         <AccordionHeader>Formulas</AccordionHeader>
         <Accordion.Body>
           <ListGroup>
-            <AccordianLinkItem displayName="Alveolar Air Equation" linkTo="/" />
+            <AccordianLinkItem
+              displayName="Alveolar Air Equation"
+              linkTo="alveolarairequation"
+            />
 
             <AccordianLinkItem displayName="P/F Ratio" linkTo="/" />
             <AccordianLinkItem displayName="Oxygen Content" linkTo="/" />

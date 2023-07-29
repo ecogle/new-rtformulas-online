@@ -4,6 +4,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 import Footer from "../../../components/footer/footer";
 import PageTitle from "../../../components/PageTitle/PageTitle";
+import { ValidateNumber } from "../../../Utilities/Utilities";
 
 function DesiredVe() {
   const [kve, setkve] = useState("");
@@ -30,20 +31,6 @@ function DesiredVe() {
     setkve("");
   };
 
-  const validateNumber = (e) => {
-    debugger;
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      if (e.target.name === "kpaco2") {
-        setkpaco2(e.target.value);
-      } else if (e.target.name === "dpaco2") {
-        setdpaco2(e.target.value);
-      } else if (e.target.name === "kve") {
-        setkve(e.target.value);
-      }
-    }
-  };
   return (
     <>
       <NavBar />
@@ -70,7 +57,7 @@ function DesiredVe() {
                     name="kve"
                     id="kve"
                     value={kve}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setkve)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -83,7 +70,7 @@ function DesiredVe() {
                     id="kpaco2"
                     name="kpaco2"
                     value={kpaco2}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setkpaco2)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -96,7 +83,7 @@ function DesiredVe() {
                     name="dpaco2"
                     id="dpaco2"
                     value={dpaco2}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setdpaco2)}
                     type="text"
                   ></Form.Control>
                 </Col>

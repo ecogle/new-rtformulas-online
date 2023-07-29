@@ -4,6 +4,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 import Footer from "../../../components/footer/footer";
 import PageTitle from "../../../components/PageTitle/PageTitle";
+import { ValidateNumber, ValidateFiO2 } from "../../../Utilities/Utilities";
 
 function DesiredFIO2({ props }) {
   const [dpao2, setDpao2] = useState("");
@@ -17,24 +18,11 @@ function DesiredFIO2({ props }) {
   const dpao2Input = useRef();
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    let answer = (dpao2 * kfio2) / kpao2;
-    setDfio2(answer);
-  };
-
-  const validateNumber = (e) => {
     debugger;
-    if (isNaN(e.target.value)) {
-      alert("Only numbers are allowed.");
-    } else {
-      if (e.target.name === "kpao2") {
-        setkpao2(e.target.value);
-      } else if (e.target.name === "dpao2") {
-        setDpao2(e.target.value);
-      } else if (e.target.name === "kfio2") {
-        setKfio2(e.target.value);
-      }
-    }
+    event.preventDefault();
+    let tempFio2 = ValidateFiO2(kfio2);
+    let answer = dpao2 * (tempFio2 / kpao2);
+    setDfio2(answer.toFixed(2));
   };
 
   const handleClearForm = (event) => {
@@ -71,7 +59,7 @@ function DesiredFIO2({ props }) {
                     name="dpao2"
                     id="dpao2"
                     value={dpao2}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setDpao2)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -84,7 +72,9 @@ function DesiredFIO2({ props }) {
                     id="kfio2"
                     name="kfio2"
                     value={kfio2}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => {
+                      ValidateNumber(e.target.value, setKfio2);
+                    }}
                   ></Form.Control>
                 </Col>
               </Row>
@@ -96,7 +86,7 @@ function DesiredFIO2({ props }) {
                     name="kpao2"
                     id="kpao2"
                     value={kpao2}
-                    onChange={(e) => validateNumber(e)}
+                    onChange={(e) => ValidateNumber(e.target.value, setkpao2)}
                     type="text"
                   ></Form.Control>
                 </Col>
@@ -128,7 +118,7 @@ function DesiredFIO2({ props }) {
               <Row>
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    FiO2: {(dfio2 / 100).toFixed(2)}
+                    FiO2: {dfio2}
                   </Button>
                 </Col>
               </Row>
