@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/new-rt-formulasonline/static/css/main.4919cc0d.css",
+    "main.js": "/new-rt-formulasonline/static/js/main.8ea8089e.js",
+    "static/js/787.403a8e20.chunk.js": "/new-rt-formulasonline/static/js/787.403a8e20.chunk.js",
+    "index.html": "/new-rt-formulasonline/index.html",
+    "main.4919cc0d.css.map": "/new-rt-formulasonline/static/css/main.4919cc0d.css.map",
+    "main.8ea8089e.js.map": "/new-rt-formulasonline/static/js/main.8ea8089e.js.map",
+    "787.403a8e20.chunk.js.map": "/new-rt-formulasonline/static/js/787.403a8e20.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4919cc0d.css",
+    "static/js/main.8ea8089e.js"
+  ]
+}
