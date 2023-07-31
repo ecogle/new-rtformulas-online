@@ -7,6 +7,7 @@ import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber, ValidateFiO2 } from "../../../Utilities/Utilities";
 import Fio2 from "../../../components/Subs/Fio2";
 import PaO2 from "../../../components/Subs/Pao2";
+import "../../../index.css";
 
 function DesiredFIO2({ props }) {
   const [dpao2, setDpao2] = useState("");
@@ -38,19 +39,9 @@ function DesiredFIO2({ props }) {
     <>
       <NavBar />
       <PageTitle title="Desired FiO2" />
-      <Container
-        style={{
-          width: "100%",
-          marginTop: "15px",
-          borderRadius: "10px",
-        }}
-      >
+      <Container>
         <Row>
-          <Col
-            style={{
-              width: "25%",
-            }}
-          >
+          <Col>
             <Form>
               <Row>
                 <Col>
@@ -67,7 +58,7 @@ function DesiredFIO2({ props }) {
                   ></Form.Control>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "20px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>
                     Known <Fio2 />
@@ -83,7 +74,7 @@ function DesiredFIO2({ props }) {
                   ></Form.Control>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "20px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>
                     Known <PaO2 />
@@ -100,14 +91,19 @@ function DesiredFIO2({ props }) {
               </Row>
               <Row>
                 <Col>
-                  <Row style={{ paddingTop: "5px" }}>
+                  <Row className="row-padding">
                     <Col>
-                      <Button onClick={handleSubmit} style={{ width: "100%" }}>
+                      <Button
+                        type="button"
+                        onClick={handleSubmit}
+                        style={{ width: "100%" }}
+                      >
                         Submit
                       </Button>
                     </Col>
                     <Col>
                       <Button
+                        type="button"
                         onClick={handleClearForm}
                         style={{ width: "100%" }}
                       >

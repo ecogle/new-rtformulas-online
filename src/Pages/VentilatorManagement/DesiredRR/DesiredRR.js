@@ -6,6 +6,7 @@ import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
 import PaCO2 from "../../../components/Subs/Paco2";
+import "../../../index.css";
 
 function DesiredRR() {
   const [krr, setkrr] = useState("");
@@ -37,19 +38,9 @@ function DesiredRR() {
       <NavBar />
       <PageTitle title="Desired Respiratory Rate" />
 
-      <Container
-        style={{
-          width: "100%",
-          marginTop: "15px",
-          borderRadius: "10px",
-        }}
-      >
+      <Container>
         <Row>
-          <Col
-            style={{
-              width: "25%",
-            }}
-          >
+          <Col>
             <Form>
               <Row>
                 <Col>
@@ -64,7 +55,7 @@ function DesiredRR() {
                   ></Form.Control>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "20px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>
                     Known <PaCO2 />
@@ -79,7 +70,7 @@ function DesiredRR() {
                   ></Form.Control>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "20px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>
                     Desired <PaCO2 />
@@ -96,7 +87,7 @@ function DesiredRR() {
               </Row>
               <Row>
                 <Col>
-                  <Row style={{ paddingTop: "5px" }}>
+                  <Row className="row-padding">
                     <Col>
                       <Button onClick={handleSubmit} style={{ width: "100%" }}>
                         Submit

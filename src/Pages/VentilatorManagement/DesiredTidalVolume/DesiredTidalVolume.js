@@ -7,6 +7,7 @@ import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
 import Vt from "../../../components/Subs/Vt";
 import PaCO2 from "../../../components/Subs/Paco2";
+import "../../../index.css";
 
 function DesiredTidalVolume() {
   const [kvt, setkvt] = useState("");
@@ -37,19 +38,9 @@ function DesiredTidalVolume() {
     <>
       <NavBar />
       <PageTitle title="Desired Tidal Volume" />
-      <Container
-        style={{
-          width: "100%",
-          marginTop: "15px",
-          borderRadius: "10px",
-        }}
-      >
+      <Container>
         <Row>
-          <Col
-            style={{
-              width: "25%",
-            }}
-          >
+          <Col>
             <Form>
               <Row>
                 <Col>
@@ -66,7 +57,7 @@ function DesiredTidalVolume() {
                   ></Form.Control>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "20px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>
                     Known <PaCO2 />
@@ -81,7 +72,7 @@ function DesiredTidalVolume() {
                   ></Form.Control>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "20px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>
                     Desired <PaCO2 />
@@ -98,7 +89,7 @@ function DesiredTidalVolume() {
               </Row>
               <Row>
                 <Col>
-                  <Row style={{ paddingTop: "5px" }}>
+                  <Row className="row-padding">
                     <Col>
                       <Button onClick={handleSubmit} style={{ width: "100%" }}>
                         Submit
