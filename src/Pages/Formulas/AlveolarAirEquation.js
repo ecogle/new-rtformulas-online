@@ -8,6 +8,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PAO2 from "../../components/Subs/PAlvO2";
 import Pb from "../../components/Subs/Pb";
 import PH2O from "../../components/Subs/PH2O";
+import "../../index.css";
 
 export default function AlveolarAirEquation() {
   const [kfio2, setKfio2] = useState("");
@@ -37,15 +38,9 @@ export default function AlveolarAirEquation() {
     <>
       <NavBar />
       <PageTitle title="Alveolar Air Equation" />
-      <Container
-        style={{
-          width: "100%",
-          marginTop: "15px",
-          borderRadius: "10px",
-        }}
-      >
+      <Container>
         <Row>
-          <Col style={{ width: "25%" }}>
+          <Col>
             <Form>
               <Row>
                 <Col>
@@ -60,7 +55,7 @@ export default function AlveolarAirEquation() {
                   />
                 </Col>
               </Row>
-              <Row>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>
                     Known <PaCO2 />
@@ -73,7 +68,7 @@ export default function AlveolarAirEquation() {
                   />
                 </Col>
               </Row>
-              <Row>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>Barametric Pressue (mmHg)</Form.Label>
                   <Form.Control
@@ -84,7 +79,7 @@ export default function AlveolarAirEquation() {
                   />
                 </Col>
               </Row>
-              <Row>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>Water Vapor Pressure</Form.Label>
                   <Form.Control
@@ -95,7 +90,7 @@ export default function AlveolarAirEquation() {
                   />
                 </Col>
               </Row>
-              <Row>
+              <Row className="row-padding">
                 <Col>
                   <Form.Label>Respiratory Quotient</Form.Label>
                   <Form.Control
@@ -106,7 +101,7 @@ export default function AlveolarAirEquation() {
                   ></Form.Control>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "10px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Button style={{ width: "100%" }} onClick={handleSubmit}>
                     Submit
@@ -118,7 +113,7 @@ export default function AlveolarAirEquation() {
                   </Button>
                 </Col>
               </Row>
-              <Row style={{ paddingTop: "10px" }}>
+              <Row className="row-padding">
                 <Col>
                   <Button style={{ width: "100%" }} className="btn btn-danger">
                     <PAO2 />: {answer} mmHg
