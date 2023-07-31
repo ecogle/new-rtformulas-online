@@ -9,6 +9,7 @@ import PAO2 from "../../components/Subs/PAlvO2";
 import Pb from "../../components/Subs/Pb";
 import PH2O from "../../components/Subs/PH2O";
 import "../../index.css";
+import Footer from "../../components/footer/footer";
 
 export default function AlveolarAirEquation() {
   const [kfio2, setKfio2] = useState("");
@@ -136,6 +137,7 @@ export default function AlveolarAirEquation() {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }

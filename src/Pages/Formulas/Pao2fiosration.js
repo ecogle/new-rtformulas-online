@@ -5,6 +5,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PaO2 from "../../components/Subs/Pao2";
 import Fio2 from "../../components/Subs/Fio2";
 import { ValidateFiO2, ValidateNumber } from "../../Utilities/Utilities";
+import Footer from "../../components/footer/footer";
 
 export default function PaO2FiO2Ratio() {
   const [kpao2, setKpao2] = useState("");
@@ -94,6 +95,7 @@ export default function PaO2FiO2Ratio() {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }
