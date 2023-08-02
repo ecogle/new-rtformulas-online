@@ -1,6 +1,10 @@
 .accordianLinkItem {
   background-color: white;
 }
+.link {
+  text-decoration: none;
+  color: white;
+}
 .linkItem {
   background-color: grey !important;
   text-align: center !important;
@@ -10,5 +14,9 @@
 }
 .linkItem:hover {
   background-color: rgb(71, 117, 243) !important;
+  color: black !important;
+}
+
+.linkItem:hover .link {
   color: black !important;
 }

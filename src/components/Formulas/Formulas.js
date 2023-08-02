@@ -17,7 +17,11 @@ export default function Formulas(props) {
             />
 
             <AccordianLinkItem displayName="P/F Ratio" linkTo="pao2fio2ratio" />
-            <AccordianLinkItem displayName="Oxygen Content" linkTo="/" />
+
+            <AccordianLinkItem
+              displayName="Oxygen Content"
+              linkTo="oxygencontent"
+            />
             <AccordianLinkItem
               displayName="Analyze Arterial Blood Gas"
               linkTo="/"

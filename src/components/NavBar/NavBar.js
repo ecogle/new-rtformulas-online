@@ -4,11 +4,13 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 
 export default function NavBar() {
   return (
-    <Navbar expand="large" className="nav-bar">
+    <Navbar className="nav-bar">
       <Container>
-        <Navbar.Brand>RT Formulas Online</Navbar.Brand>
+        <div>RT Formulas Online</div>
         <Nav>
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
         </Nav>
       </Container>
     </Navbar>

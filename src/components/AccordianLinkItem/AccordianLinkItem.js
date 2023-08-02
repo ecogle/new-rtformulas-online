@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ListGroup } from "react-bootstrap";
 import "./AccordianLinkItem.css";
 
 function AccordianLinkItem(props) {
   return (
     <div className="accordianLinkItem">
-      <ListGroup.Item href={props.linkTo} action="true" className="linkItem">
-        {props.displayName}
-      </ListGroup.Item>
+      <Link to={props.linkTo} className="link">
+        <ListGroup.Item className="linkItem">
+          {props.displayName}
+        </ListGroup.Item>
+      </Link>
     </div>
   );
 }

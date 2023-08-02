@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import * as bs from "bootstrap/dist/css/bootstrap.css";
 import IdealBodyWeight from "./Pages/VentilatorManagement/IdealBodyWeight/IdealBodyWeight";
@@ -13,23 +13,25 @@ import DesiredTidalVolume from "./Pages/VentilatorManagement/DesiredTidalVolume/
 import DesiredRR from "./Pages/VentilatorManagement/DesiredRR/DesiredRR";
 import AlveolarAirEquation from "./Pages/Formulas/AlveolarAirEquation";
 import PaO2FiO2Ratio from "./Pages/Formulas/Pao2fiosration";
+import OxygenContent from "./Pages/Formulas/OxygenContent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" exact element={<App />} />
-        <Route path="idealbodyweight" element={<IdealBodyWeight />} />
-        <Route path="desiredfio2" element={<DesiredFIO2 />} />
-        <Route path="idealbodyweight/:id" element={<IdealBodyWeight />} />
-        <Route path="desiredve" element={<DesiredVe />} />
-        <Route path="desiredvt" element={<DesiredTidalVolume />} />
-        <Route path="desiredrr" element={<DesiredRR />} />
-        <Route path="alveolarairequation" element={<AlveolarAirEquation />} />
-        <Route path="pao2fio2ratio" element={<PaO2FiO2Ratio />} />
+        <Route path="/idealbodyweight" element={<IdealBodyWeight />} />
+        <Route path="/desiredfio2" element={<DesiredFIO2 />} />
+        <Route path="/idealbodyweight/:id" element={<IdealBodyWeight />} />
+        <Route path="/desiredve" element={<DesiredVe />} />
+        <Route path="/desiredvt" element={<DesiredTidalVolume />} />
+        <Route path="/desiredrr" element={<DesiredRR />} />
+        <Route path="/alveolarairequation" element={<AlveolarAirEquation />} />
+        <Route path="/pao2fio2ratio" element={<PaO2FiO2Ratio />} />
+        <Route path="/oxygencontent" element={<OxygenContent />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );
 

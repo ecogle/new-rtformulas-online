@@ -11,7 +11,7 @@ export default function Footer() {
         style={{
           paddingTop: "10px",
           paddingLeft: "30px",
-          width: "30%",
+          width: "60%",
         }}
       >
         <h5
@@ -20,10 +20,12 @@ export default function Footer() {
             fontStyle: "italic",
           }}
         >
-          * Disclaimer: Intended for educational use only. Not intended for use
-          in place of professional judgement. Please refer to &nbsp;
-          <Link to="http://www.ardsnet.org">www.ardsnet.org</Link> for updated
-          information of ARDSNet protocols and inclusion criteria
+          <small>
+            * Disclaimer: Intended for educational use only. Not intended for
+            use in place of professional judgement. Please refer to &nbsp;
+            <Link to="http://www.ardsnet.org">www.ardsnet.org</Link> for updated
+            information of ARDSNet protocols and inclusion criteria
+          </small>
         </h5>
       </div>
     </>
