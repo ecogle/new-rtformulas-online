@@ -14,6 +14,7 @@ import DesiredRR from "./Pages/VentilatorManagement/DesiredRR/DesiredRR";
 import AlveolarAirEquation from "./Pages/Formulas/AlveolarAirEquation";
 import PaO2FiO2Ratio from "./Pages/Formulas/Pao2fiosration";
 import OxygenContent from "./Pages/Formulas/OxygenContent";
+import ABGs from "./Pages/ABGs/ABGs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,6 +31,7 @@ root.render(
         <Route path="/alveolarairequation" element={<AlveolarAirEquation />} />
         <Route path="/pao2fio2ratio" element={<PaO2FiO2Ratio />} />
         <Route path="/oxygencontent" element={<OxygenContent />} />
+        <Route path="/analyzeabg" element={<ABGs />} />
       </Routes>
     </Router>
   </React.StrictMode>
