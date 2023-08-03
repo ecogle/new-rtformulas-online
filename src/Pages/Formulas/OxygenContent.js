@@ -12,16 +12,23 @@ export default function OxygenContent() {
   const [hgb, setHgb] = useState("");
   const [sao2, setSao2] = useState("");
   const [paco2, setPaco2] = useState("");
+  const [answer, setAnswer] = useState("--");
 
   const handleClear = (event) => {
     event.preventDefault();
     setHgb("");
     setSao2("");
     setPaco2("");
+    setAnswer("--");
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    let temp = 0;
+
+    temp = 1.36 * hgb * (sao2 / 100) + 0.003 * paco2;
+    setAnswer(Math.round(temp * 10) / 10);
   };
+
   return (
     <>
       <NavBar />
@@ -80,7 +87,7 @@ export default function OxygenContent() {
               <Row className="row-padding">
                 <Col>
                   <Button className="btn btn-danger" style={{ width: "100%" }}>
-                    <CaO2 />:
+                    <CaO2 />: {answer}
                   </Button>
                 </Col>
               </Row>
@@ -94,9 +101,8 @@ export default function OxygenContent() {
             </Row>
             <Row>
               <Col>
-                <CaO2 /> = 1.34 * Hgb *&nbsp;
-                <SaO2 />
-                + (0.003 *&nbsp;
+                <CaO2 /> = 1.36 * Hgb *&nbsp; (<SaO2 />
+                /100) + (0.003 *&nbsp;
                 <PaCO2 />)
               </Col>
             </Row>
