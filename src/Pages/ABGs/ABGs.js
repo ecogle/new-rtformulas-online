@@ -1,12 +1,28 @@
 import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Footer from "../../components/footer/footer";
 import "../../Utilities/Utilities";
 import "../../index.css";
-import { ValidateBaseExcess, ValidateNumber } from "../../Utilities/Utilities";
-import { PaO2, PaCO2, SaO2, Fio2 } from "../../components/Subs/Subs";
+import {
+  AlveolarAirEquation,
+  HendersonHasselback,
+  OxygenContent,
+  PFRatio,
+  ValidateBaseExcess,
+  ValidateNumber,
+} from "../../Utilities/Utilities";
+import {
+  PaO2,
+  PaCO2,
+  SaO2,
+  Fio2,
+  PAO2,
+  CaO2,
+  Pb,
+  PH2O,
+} from "../../components/Subs/Subs";
 
 export default function ABGs() {
   const [pH, setPh] = useState("");
@@ -17,16 +33,17 @@ export default function ABGs() {
   const [be, setBe] = useState("");
   const [fio2, setFio2] = useState("");
   const [hgb, setHgb] = useState("");
-  const [answer, setAnswer] = useState("---");
-  const normalPh = 7.4;
-  const normalPaO2 = 90;
-  const normalPaCO2 = 40;
-  const normalSaO2 = 100;
-
-  const analyzeABG = () => {};
+  const [mhh, setMhh] = useState("");
+  const [o2content, setO2content] = useState("");
+  const [aaa, setAaa] = useState("");
+  const [pfratio, setpfratio] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setMhh(HendersonHasselback(paco2, hco));
+    setO2content(OxygenContent(hgb, sao2, paco2));
+    setAaa(AlveolarAirEquation(fio2, paco2));
+    setpfratio(PFRatio(pao2, fio2));
   };
 
   const handleClear = (event) => {
@@ -39,7 +56,10 @@ export default function ABGs() {
     setBe("");
     setFio2("");
     setHgb("");
-    setAnswer("---");
+    setMhh("");
+    setO2content("");
+    setAaa("");
+    setpfratio("");
   };
 
   return (
@@ -100,6 +120,18 @@ export default function ABGs() {
                   />
                 </Col>
               </Row>
+              <Row className="row-padding">
+                <Col>
+                  <Button style={{ width: "100%" }} onClick={handleSubmit}>
+                    Submit
+                  </Button>
+                </Col>
+                <Col>
+                  <Button style={{ width: "100%" }} onClick={handleClear}>
+                    Clear
+                  </Button>
+                </Col>
+              </Row>
             </Col>
             <Col>
               <Row>
@@ -148,10 +180,60 @@ export default function ABGs() {
             </Col>
             <Col>
               <Row>
-                <Col>Interpretation</Col>
+                <Col>
+                  <h3>Analysis:</h3>
+                </Col>
+              </Row>
+              <Row>&nbsp;</Row>
+              <Row>
+                <Col>Henderson/Hasselback:</Col>
+                <Col>
+                  <span style={{ textDecoration: "underline" }}>{mhh}</span>
+                </Col>
               </Row>
               <Row>
-                <Col>{answer}</Col>
+                <Col>
+                  <CaO2 />:
+                </Col>
+                <Col>
+                  <span style={{ textDecoration: "underline" }}>
+                    {o2content}
+                  </span>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <PAO2 />
+                  <sup>**</sup>:
+                </Col>
+                <Col>
+                  <span style={{ textDecoration: "underline" }}>{aaa}</span>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <PaO2 />/<Fio2 />:
+                </Col>
+                <Col>
+                  <span style={{ textDecoration: "underline" }}>{pfratio}</span>
+                </Col>
+              </Row>
+              <Row>
+                <Col>&nbsp;</Col>
+              </Row>
+
+              <Row>
+                <Col>&nbsp;</Col>
+              </Row>
+              <Row>
+                <Col>
+                  <div style={{ fontSize: "9pt" }}>
+                    **
+                    <Pb />
+                    =760, <PH2O />
+                    =47, RQ=0.8
+                  </div>
+                </Col>
               </Row>
             </Col>
           </Row>
