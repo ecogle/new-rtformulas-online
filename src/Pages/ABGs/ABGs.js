@@ -5,9 +5,8 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import Footer from "../../components/footer/footer";
 import "../../Utilities/Utilities";
 import "../../index.css";
-import { ValidateNumber } from "../../Utilities/Utilities";
-import PaCO2 from "../../components/Subs/Paco2";
-import PaO2 from "../../components/Subs/Pao2";
+import { ValidateBaseExcess, ValidateNumber } from "../../Utilities/Utilities";
+import { PaO2, PaCO2, SaO2, Fio2 } from "../../components/Subs/Subs";
 
 export default function ABGs() {
   const [pH, setPh] = useState("");
@@ -48,9 +47,13 @@ export default function ABGs() {
       <NavBar />
       <PageTitle title="Analyze ABG" />
       <Container>
-        <Row>
-          <Col>
-            <Form>
+        <Form>
+          <Row>
+            <Col>
+              <Row>
+                <Col></Col>
+                <Col></Col>
+              </Row>
               <Row>
                 <Col>
                   <Form.Label>Ph</Form.Label>
@@ -85,18 +88,75 @@ export default function ABGs() {
                   />
                 </Col>
               </Row>
-            </Form>
-          </Col>
-          <Col>
-            <Row>
-              <Col>Interpretation</Col>
-            </Row>
-            <Row>
-              <Col>{answer}</Col>
-            </Row>
-          </Col>
-        </Row>
-        <Footer />
+              <Row className="row-padding">
+                <Col>
+                  <Form.Label>
+                    <SaO2 />
+                  </Form.Label>
+                  <Form.Control
+                    type="input"
+                    value={sao2}
+                    onChange={(e) => ValidateNumber(e.target.value, setSao2)}
+                  />
+                </Col>
+              </Row>
+            </Col>
+            <Col>
+              <Row>
+                <Col>
+                  <Form.Label>HCO</Form.Label>
+                  <Form.Control
+                    type="input"
+                    value={hco}
+                    onChange={(e) => ValidateNumber(e.target.value, setHco)}
+                  />
+                </Col>
+              </Row>
+              <Row className="row-padding">
+                <Col>
+                  <Form.Label>BE</Form.Label>
+                  <Form.Control
+                    type="input"
+                    value={be}
+                    onChange={(e) => setBe(e.target.value)}
+                    onBlur={(e) => ValidateBaseExcess(e.target.value, setBe)}
+                  />
+                </Col>
+              </Row>
+              <Row className="row-padding">
+                <Col>
+                  <Form.Label>
+                    <Fio2 />
+                  </Form.Label>
+                  <Form.Control
+                    type="input"
+                    value={fio2}
+                    onChange={(e) => ValidateNumber(e.target.value, setFio2)}
+                  />
+                </Col>
+              </Row>
+              <Row className="row-padding">
+                <Col>
+                  <Form.Label>Hgb</Form.Label>
+                  <Form.Control
+                    type="input"
+                    value={hgb}
+                    onChange={(e) => ValidateNumber(e.target.value, setHgb)}
+                  />
+                </Col>
+              </Row>
+            </Col>
+            <Col>
+              <Row>
+                <Col>Interpretation</Col>
+              </Row>
+              <Row>
+                <Col>{answer}</Col>
+              </Row>
+            </Col>
+          </Row>
+          <Footer />
+        </Form>
       </Container>
     </>
   );

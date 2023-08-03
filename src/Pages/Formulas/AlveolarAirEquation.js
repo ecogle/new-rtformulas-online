@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import NavBar from "../../components/NavBar/NavBar";
 import { ValidateNumber, ValidateFiO2 } from "../../Utilities/Utilities";
-import Fio2 from "../../components/Subs/Fio2";
-import PaCO2 from "../../components/Subs/Paco2";
-import PageTitle from "../../components/PageTitle/PageTitle";
-import PAO2 from "../../components/Subs/PAlvO2";
-import Pb from "../../components/Subs/Pb";
-import PH2O from "../../components/Subs/PH2O";
 import "../../index.css";
 import Footer from "../../components/footer/footer";
+import { PAO2, PH2O, Fio2, PaCO2, Pb } from "../../components/Subs/Subs";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 export default function AlveolarAirEquation() {
   const [kfio2, setKfio2] = useState("");

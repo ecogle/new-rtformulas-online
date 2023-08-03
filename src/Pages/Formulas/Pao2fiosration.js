@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import NavBar from "../../components/NavBar/NavBar";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import PaO2 from "../../components/Subs/Pao2";
-import Fio2 from "../../components/Subs/Fio2";
 import { ValidateFiO2, ValidateNumber } from "../../Utilities/Utilities";
 import Footer from "../../components/footer/footer";
+import { PaO2, Fio2 } from "../../components/Subs/Subs";
 
 export default function PaO2FiO2Ratio() {
   const [kpao2, setKpao2] = useState("");

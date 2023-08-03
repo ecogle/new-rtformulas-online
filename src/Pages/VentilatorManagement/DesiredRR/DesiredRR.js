@@ -5,8 +5,8 @@ import Footer from "../../../components/footer/footer";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
-import PaCO2 from "../../../components/Subs/Paco2";
 import "../../../index.css";
+import { PaCO2 } from "../../../components/Subs/Subs";
 
 function DesiredRR() {
   const [krr, setkrr] = useState("");

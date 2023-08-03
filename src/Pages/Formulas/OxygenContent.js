@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import PaCO2 from "../../components/Subs/Paco2";
-import SaO2 from "../../components/Subs/SaO2";
-import CaO2 from "../../components/Subs/CaO2";
 import "../../Utilities/Utilities";
 import { ValidateNumber } from "../../Utilities/Utilities";
+import { SaO2, PaCO2, CaO2 } from "../../components/Subs/Subs";
 
 export default function OxygenContent() {
   const [hgb, setHgb] = useState("");

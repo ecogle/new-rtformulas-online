@@ -21,3 +21,13 @@ export function ValidateFiO2(value, callBack) {
     return value;
   }
 }
+
+export function ValidateBaseExcess(value, callBack) {
+  debugger;
+  if (!isNaN(parseInt(value))) {
+    callBack(parseInt(value));
+  } else {
+    callBack("");
+    alert("Not a valid value");
+  }
+}

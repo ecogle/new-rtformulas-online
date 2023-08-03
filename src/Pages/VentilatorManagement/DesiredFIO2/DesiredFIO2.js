@@ -5,9 +5,8 @@ import { useState } from "react";
 import Footer from "../../../components/footer/footer";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber, ValidateFiO2 } from "../../../Utilities/Utilities";
-import Fio2 from "../../../components/Subs/Fio2";
-import PaO2 from "../../../components/Subs/Pao2";
 import "../../../index.css";
+import { Fio2, PaO2 } from "../../../components/Subs/Subs";
 
 function DesiredFIO2({ props }) {
   const [dpao2, setDpao2] = useState("");

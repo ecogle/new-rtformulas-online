@@ -5,9 +5,8 @@ import { useState } from "react";
 import Footer from "../../../components/footer/footer";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
-import Ve from "../../../components/Subs/Ve";
-import PaCO2 from "../../../components/Subs/Paco2";
 import "../../../index.css";
+import { Ve, PaCO2 } from "../../../components/Subs/Subs";
 
 function DesiredVe() {
   const [kve, setkve] = useState("");

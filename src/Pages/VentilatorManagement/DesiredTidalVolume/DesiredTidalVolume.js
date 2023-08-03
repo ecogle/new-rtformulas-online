@@ -5,9 +5,8 @@ import Footer from "../../../components/footer/footer";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { ValidateNumber } from "../../../Utilities/Utilities";
-import Vt from "../../../components/Subs/Vt";
-import PaCO2 from "../../../components/Subs/Paco2";
 import "../../../index.css";
+import { Vt, PaCO2 } from "../../../components/Subs/Subs";
 
 function DesiredTidalVolume() {
   const [kvt, setkvt] = useState("");
