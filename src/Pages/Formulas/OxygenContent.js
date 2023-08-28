@@ -5,6 +5,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "../../Utilities/Utilities";
 import { ValidateNumber } from "../../Utilities/Utilities";
 import { SaO2, PaCO2, CaO2 } from "../../components/Subs/Subs";
+import Footer from "../../components/footer/footer";
 
 export default function OxygenContent() {
   const [hgb, setHgb] = useState("");
@@ -107,6 +108,7 @@ export default function OxygenContent() {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }

@@ -204,7 +204,10 @@ export default function ABGs() {
               <Row>
                 <Col>
                   <PAO2 />
-                  <sup>**</sup>:
+                  <span style={{ color: "red" }}>
+                    <sup>**</sup>
+                  </span>
+                  :&nbsp;
                 </Col>
                 <Col>
                   <span style={{ textDecoration: "underline" }}>{aaa}</span>
@@ -227,7 +230,7 @@ export default function ABGs() {
               </Row>
               <Row>
                 <Col>
-                  <div style={{ fontSize: "9pt" }}>
+                  <div style={{ fontSize: "9pt", color: "red" }}>
                     **
                     <Pb />
                     =760, <PH2O />
@@ -237,9 +240,9 @@ export default function ABGs() {
               </Row>
             </Col>
           </Row>
-          <Footer />
         </Form>
       </Container>
+      <Footer />
     </>
   );
 }
